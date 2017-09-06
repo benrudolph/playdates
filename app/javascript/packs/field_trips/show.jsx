@@ -15,6 +15,7 @@ import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 
 import { MainNav } from 'global/components'
+import { FieldTripShow } from 'trips/components'
 
 window.jQuery = jQuery
 window.moment = moment
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div>
       <MainNav />
       <div className="container">
+        <FieldTripShow />
       </div>
     </div>
     </Provider>,

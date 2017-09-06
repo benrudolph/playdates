@@ -47,3 +47,39 @@ export class FieldTrips extends React.Component {
         )
     }
 }
+
+class FieldTripSection extends React.Component {
+    render() {
+        return (
+            <section>
+                <div className="row">
+                    <div className="col-3">
+                        {this.props.label}
+                    </div>
+                    <div className="col-9">
+                        {this.props.text}
+                    </div>
+                </div>
+            </section>
+        )
+    }
+}
+
+export class FieldTripShow extends React.Component {
+    render() {
+        return (
+            <div className="field-trip-show">
+                <h1>
+                    Cat dog hate mouse eat string barf pillow
+                </h1>
+                <section>
+                    Hosted By Saburo
+                </section>
+                <FieldTripSection
+                    label="About your host"
+                    text="I run an online figurine and anime, manga, video games merchandise store and spend hours every day looking for hidden gems. I know this area like the back of my hand and look forward to taking you figurine-hunting in the streets of Akihabara."
+                />
+            </div>
+        )
+    }
+}
