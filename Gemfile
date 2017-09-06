@@ -37,6 +37,8 @@ gem 'font-awesome-sass'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 #
+#
+gem 'activeadmin', github: 'activeadmin'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
