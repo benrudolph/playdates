@@ -19,7 +19,7 @@ const loggerMiddleware = createLogger()
 
 document.addEventListener('DOMContentLoaded', () => {
   store = createStore(
-    null,
+    () => {},
     {},
     applyMiddleware(
       loggerMiddleware,
