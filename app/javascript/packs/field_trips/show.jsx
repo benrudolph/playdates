@@ -15,7 +15,7 @@ import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 
 import { MainNav } from 'global/components'
-import { FieldTripShow } from 'trips/components'
+import { FieldTripShow } from 'field_trips/components'
 
 window.jQuery = jQuery
 window.moment = moment

@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 
 export class FieldTripTile extends React.Component {
@@ -151,3 +152,17 @@ export class FieldTripShow extends React.Component {
         )
     }
 }
+
+(function() {
+    const mapStateToProps = state => {
+        return {
+            fieldTrips: state.field_trips,
+        }
+    }
+
+    const mapDispatchToProps = dispatch => {
+        return {}
+    }
+
+    FieldTrips = connect(mapStateToProps, mapDispatchToProps)(FieldTrips)
+})()
