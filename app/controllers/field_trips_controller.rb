@@ -1,6 +1,7 @@
 class FieldTripsController < ApplicationController
   def show
-    @field_trip = FieldTrip.first
+    params.permit(:id)
+    @field_trip = FieldTrip.find(params[:id])
     respond_to do |format|
       format.html
       format.json { render json: { field_trip: @field_trip } }

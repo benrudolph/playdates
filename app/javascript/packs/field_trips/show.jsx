@@ -16,6 +16,7 @@ import { Provider } from 'react-redux'
 
 import { MainNav } from 'global/components'
 import { FieldTripShow } from 'field_trips/components'
+import fieldTripReducer from 'field_trips/reducers'
 
 window.jQuery = jQuery
 window.moment = moment
@@ -24,9 +25,10 @@ let store;
 const loggerMiddleware = createLogger()
 
 document.addEventListener('DOMContentLoaded', () => {
+  const initialData = $('#initial-data').data().initialData
   store = createStore(
-    () => {},
-    {},
+    fieldTripReducer,
+    initialData,
     applyMiddleware(
       loggerMiddleware,
     )
