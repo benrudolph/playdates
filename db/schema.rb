@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906224632) do
+ActiveRecord::Schema.define(version: 20170906232010) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170906224632) do
     t.integer "cost"
     t.integer "user_id"
     t.text "requirements", default: "--- []\n"
+    t.string "trip_image_url"
     t.index ["user_id"], name: "index_field_trips_on_user_id"
   end
 

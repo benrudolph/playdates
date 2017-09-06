@@ -37,7 +37,7 @@ class FieldTripProfileTile extends React.Component {
         return (
         <div className="profile-tile">
           <div className="mw-100 field-trip-hero-img">
-              <img className="img-fluid" src={trip.user.profile_image_url} alt="Card image cap" />
+              <img className="img-fluid" src={trip.trip_image_url} alt="Card image cap" />
           </div>
           <div className="mt-3">
             <div className="d-flex justify-content-between">
