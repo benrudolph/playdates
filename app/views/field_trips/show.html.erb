@@ -1,3 +1,3 @@
-<div id="initial-data" data-initial-data="<%= { field_trip: @field_trip.as_json }.to_json %>"></div>
+<div id="initial-data" data-initial-data="<%= { field_trip: @field_trip.as_json(include: { user: { include: :facts } }) }.to_json %>"></div>
 <div class="react-container"></div>
 <%= javascript_pack_tag 'field_trips/show' %>

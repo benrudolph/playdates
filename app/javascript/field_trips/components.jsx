@@ -91,14 +91,25 @@ class FieldTripSection extends React.Component {
 
 class FieldTripSummary extends React.Component {
     render() {
+        const user = this.props.fieldTrip.user
+        const trip = this.props.fieldTrip
+
+        const facts = user.facts.map((fact, i) => {
+            return (
+                <div className="fact" key={i}>
+                    <i className={"fa fa-" + fact.icon}></i><span className="ml-3">{fact.name}</span>
+                </div>
+            )
+        })
+
         return (
             <section className="field-trip-section">
                 <div className="d-flex justify-content-between">
                     <div className="light">
-                        <p>Lifestyle Experience</p>
-                        <p>
-                            <i className="fa fa-clock-o"></i><span className="ml-3">3 hours total</span>
-                        </p>
+                        <p>{trip.trip_type}</p>
+                        <div>
+                            {facts}
+                        </div>
                     </div>
                     <div>
                       <img className="rounded-circle" src="http://via.placeholder.com/75x75" alt="Card image cap" />
@@ -120,10 +131,11 @@ export class FieldTripShow extends React.Component {
                                 {this.props.fieldTrip.name}
                             </h1>
                             <FieldTripSummary
+                                fieldTrip={this.props.fieldTrip}
                             />
                             <FieldTripSection
-                                label="About your host, Nick"
-                                text="I run an online figurine and anime, manga, video games merchandise store and spend hours every day looking for hidden gems. I know this area like the back of my hand and look forward to taking you figurine-hunting in the streets of Akihabara."
+                                label={"About your host, " + this.props.fieldTrip.user.name}
+                                text={this.props.fieldTrip.user.about}
                             />
                             <FieldTripSection
                                 label="What we'll do"
