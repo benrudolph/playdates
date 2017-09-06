@@ -51,12 +51,12 @@ export class FieldTrips extends React.Component {
 class FieldTripSection extends React.Component {
     render() {
         return (
-            <section>
+            <section className="field-trip-section">
                 <div className="row">
-                    <div className="col-3">
+                    <div className="col-3 label">
                         {this.props.label}
                     </div>
-                    <div className="col-9">
+                    <div className="col-9 text">
                         {this.props.text}
                     </div>
                 </div>
@@ -78,6 +78,18 @@ export class FieldTripShow extends React.Component {
                 <FieldTripSection
                     label="About your host, Nick"
                     text="I run an online figurine and anime, manga, video games merchandise store and spend hours every day looking for hidden gems. I know this area like the back of my hand and look forward to taking you figurine-hunting in the streets of Akihabara."
+                />
+                <FieldTripSection
+                    label="What we'll do"
+                    text="After a quick introduction to the subculture of figurines, we'll set out to scour the area in search of the items on your wish list. I'm both a lifelong local and a passionate fan, so I know which of the hundreds of shops will have any particular item. If you're obsessed with anime, manga, or video games, the Akihabara neighborhood will have what you're looking for."
+                />
+                <FieldTripSection
+                    label="Notes"
+                    text="To outsiders, Akihabara can be overwhelming. Better to tackle it with a professional figurine buyer!"
+                />
+                <FieldTripSection
+                    label="Where we'll be"
+                    text="We'll be in a candy-colored maze of stores in the Akihabara neighborhood. Hardcore fans, called otaku, consider this area to be a sacred place. To outsiders, it can be overwhelming. That's why it's a good idea to tackle Akihabara with a professional figurine buyer."
                 />
             </div>
         )

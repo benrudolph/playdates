@@ -1,0 +1,15 @@
+.field-trip-show {
+    padding-top: 24px;
+    max-width: 575px;
+
+    .field-trip-section {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        border-top: 1px solid $light-gray;
+
+        font-size: 17px;
+        .text {
+            font-weight: 300;
+        }
+    }
+}
