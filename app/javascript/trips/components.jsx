@@ -34,7 +34,9 @@ class FieldTripProfileTile extends React.Component {
     render() {
         return (
         <div className="profile-tile">
-          <img className="w-100" src="http://via.placeholder.com/360x460" alt="Card image cap" />
+          <div className="mw-100 field-trip-hero-img">
+              <img src="http://via.placeholder.com/360x460" alt="Card image cap" />
+          </div>
           <div className="mt-3">
             <div className="d-flex justify-content-between">
                 <p className=""><b>$60</b> per child</p>
@@ -115,8 +117,8 @@ export class FieldTripShow extends React.Component {
     render() {
         return (
             <div className="field-trip-show">
-                <div className="row">
-                    <div className="col-8">
+                <div className="row d-flex flex-wrap-reverse">
+                    <div className="col-md-8">
                         <div className="ml-3 mr-3">
                             <h1 className="mb-3 pb-3">
                                 Cat dog hate mouse eat string barf pillow
@@ -141,7 +143,7 @@ export class FieldTripShow extends React.Component {
                             />
                         </div>
                     </div>
-                    <div className="col-4">
+                    <div className="col-md-4">
                         <FieldTripProfileTile />
                     </div>
                 </div>
