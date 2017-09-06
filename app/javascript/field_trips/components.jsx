@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import MapStyles from 'global/map_styles'
+
+import MapIconPurple from '../../assets/images/purple_map_icon.png'
+
+const PurpleIcon = {
+    url: MapIconPurple,
+    scaledSize: new google.maps.Size(35, 35),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(0, 0)
+}
 
 export class FieldTripTile extends React.Component {
     onClick() {
@@ -121,6 +131,48 @@ class FieldTripSummary extends React.Component {
     }
 }
 
+class FieldTripMap extends React.Component {
+
+    renderGMap() {
+        const $map = $('.gmap')
+        const trip = this.props.fieldTrip
+
+        const latlng = {lat: trip.lat, lng: trip.lng}
+        const map = new google.maps.Map($map[0], {
+            zoom: 12,
+            center: latlng,
+            mapTypeControlOptions: { mapTypeIds: [] },
+            styles: MapStyles.RETRO
+        });
+
+        const marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            fieldTrip: trip,
+            icon: PurpleIcon,
+        })
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: trip.name
+        });
+
+        marker.setIcon(PurpleIcon)
+        infoWindow.open(map, marker)
+    }
+
+    componentDidMount() {
+        this.renderGMap()
+    }
+
+    render() {
+        return (
+            <section className="field-trip-section">
+                <div className="w-100 gmap"></div>
+            </section>
+        )
+    }
+}
+
 export class FieldTripShow extends React.Component {
     render() {
         return (
@@ -150,6 +202,7 @@ export class FieldTripShow extends React.Component {
                                 label="Where we'll be"
                                 text={this.props.fieldTrip.where}
                             />
+                            <FieldTripMap fieldTrip={this.props.fieldTrip} />
                         </div>
                     </div>
                     <div className="col-md-4">

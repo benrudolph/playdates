@@ -1,6 +1,7 @@
 class FieldTripsController < ApplicationController
   def show
     params.permit(:id)
+    @google_api_key = Rails.application.secrets[:google_api_key]
     @field_trip = FieldTrip.find(params[:id])
     respond_to do |format|
       format.html
