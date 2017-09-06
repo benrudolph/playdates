@@ -14,6 +14,8 @@ import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 
+import MainNav from 'global/components'
+
 window.jQuery = jQuery
 window.moment = moment
 
@@ -31,8 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(
     <Provider store={store}>
-      <div>Hello</div>
+    <div>
+      <MainNav />
+    </div>
     </Provider>,
-    document.body.appendChild(document.createElement('div')),
+    $('.react-container')[0]
   )
 })
