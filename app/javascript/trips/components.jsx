@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 export class FieldTripTile extends React.Component {
     onClick() {
-        window.location.href = '/trips/1'
+        window.location.href = '/field_trips/1'
     }
 
     render() {
@@ -76,7 +76,7 @@ export class FieldTripShow extends React.Component {
                     Hosted By Saburo
                 </section>
                 <FieldTripSection
-                    label="About your host"
+                    label="About your host, Nick"
                     text="I run an online figurine and anime, manga, video games merchandise store and spend hours every day looking for hidden gems. I know this area like the back of my hand and look forward to taking you figurine-hunting in the streets of Akihabara."
                 />
             </div>
