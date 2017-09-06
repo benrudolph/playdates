@@ -11,6 +11,6 @@ ActiveAdmin.register FieldTrip do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :name, :description
+  permit_params :name, :trip_type, :duration, :notes, :where, :what, :lat, :lng, :max_people, :cost
 
 end
