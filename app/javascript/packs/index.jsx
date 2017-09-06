@@ -4,6 +4,9 @@ import Tether from 'tether/dist/js/tether'
 import moment from 'moment/moment'
 import _ from 'underscore/underscore'
 
+import 'bootstrap/dist/js/bootstrap'
+import 'daemonite-material/js/material'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'

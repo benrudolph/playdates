@@ -4,6 +4,8 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
     "babel-preset-react": "^6.24.1",
+    "bootstrap": "4.0.0-alpha.6",
+    "daemonite-material": "4.0.0-alpha.6",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
