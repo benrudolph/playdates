@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 
-class MainNav extends React.Component {
+export class MainNav extends React.Component {
     render() {
         return (
             <nav className="navbar ft-navbar">
@@ -14,5 +14,3 @@ class MainNav extends React.Component {
         )
     }
 }
-
-export default MainNav

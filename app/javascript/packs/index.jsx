@@ -14,7 +14,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 
-import MainNav from 'global/components'
+import { MainNav } from 'global/components'
 
 window.jQuery = jQuery
 window.moment = moment
