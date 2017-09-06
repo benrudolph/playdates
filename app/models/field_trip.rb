@@ -1,0 +1,2 @@
+class FieldTrip < ApplicationRecord
+end
