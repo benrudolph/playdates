@@ -12,7 +12,7 @@ export class FieldTripTile extends React.Component {
     render() {
         return (
             <div className="card m-2 pointer" style={{width: '20rem'}} onClick={this.onClick.bind(this)}>
-              <img className="card-img-top img-fluid" src="https://a0.muscache.com/im/pictures/54391822-fac5-47f3-a1e6-0b8dc0290729.jpg" alt="Card image cap" />
+              <img className="card-img-top img-fluid" src={this.props.fieldTrip.trip_image_url} alt="Card image cap" />
               <div className="card-block">
                 <p className="card-text"><b>${this.props.fieldTrip.cost}</b> {this.props.fieldTrip.name}</p>
                 <div className="d-flex align-items-center">
