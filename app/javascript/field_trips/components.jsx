@@ -12,7 +12,7 @@ export class FieldTripTile extends React.Component {
     render() {
         return (
             <div className="card m-2 pointer" style={{width: '20rem'}} onClick={this.onClick.bind(this)}>
-              <img className="card-img-top img-fluid" src="https://a0.muscache.com/im/pictures/54391822-fac5-47f3-a1e6-0b8dc0290729.jpg?aki_policy=poster" alt="Card image cap" />
+              <img className="card-img-top img-fluid" src="https://a0.muscache.com/im/pictures/54391822-fac5-47f3-a1e6-0b8dc0290729.jpg" alt="Card image cap" />
               <div className="card-block">
                 <p className="card-text"><b>${this.props.fieldTrip.cost}</b> {this.props.fieldTrip.name}</p>
                 <div className="d-flex align-items-center">
@@ -33,14 +33,15 @@ export class FieldTripTile extends React.Component {
 
 class FieldTripProfileTile extends React.Component {
     render() {
+        const trip = this.props.fieldTrip
         return (
         <div className="profile-tile">
           <div className="mw-100 field-trip-hero-img">
-              <img src="http://via.placeholder.com/360x460" alt="Card image cap" />
+              <img className="img-fluid" src={trip.user.profile_image_url} alt="Card image cap" />
           </div>
           <div className="mt-3">
             <div className="d-flex justify-content-between">
-                <p className=""><b>$60</b> per child</p>
+                <p className=""><b>${trip.cost}</b> per child</p>
                 <button className="btn btn-primary">See Dates</button>
             </div>
             <div className="d-flex align-items-center">
@@ -112,7 +113,7 @@ class FieldTripSummary extends React.Component {
                         </div>
                     </div>
                     <div>
-                      <img className="rounded-circle" src="http://via.placeholder.com/75x75" alt="Card image cap" />
+                      <img width="75" className="rounded-circle" src={user.profile_image_url} alt="Card image cap" />
                     </div>
                 </div>
             </section>
@@ -152,7 +153,7 @@ export class FieldTripShow extends React.Component {
                         </div>
                     </div>
                     <div className="col-md-4">
-                        <FieldTripProfileTile />
+                        <FieldTripProfileTile fieldTrip={this.props.fieldTrip} />
                     </div>
                 </div>
             </div>
