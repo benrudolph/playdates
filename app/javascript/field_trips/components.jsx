@@ -117,7 +117,7 @@ export class FieldTripShow extends React.Component {
                     <div className="col-md-8">
                         <div className="ml-3 mr-3">
                             <h1 className="mb-3 pb-3">
-                                Cat dog hate mouse eat string barf pillow
+                                {this.props.fieldTrip.name}
                             </h1>
                             <FieldTripSummary
                             />
@@ -127,15 +127,15 @@ export class FieldTripShow extends React.Component {
                             />
                             <FieldTripSection
                                 label="What we'll do"
-                                text="After a quick introduction to the subculture of figurines, we'll set out to scour the area in search of the items on your wish list. I'm both a lifelong local and a passionate fan, so I know which of the hundreds of shops will have any particular item. If you're obsessed with anime, manga, or video games, the Akihabara neighborhood will have what you're looking for."
+                                text={this.props.fieldTrip.what}
                             />
                             <FieldTripSection
                                 label="Notes"
-                                text="To outsiders, Akihabara can be overwhelming. Better to tackle it with a professional figurine buyer!"
+                                text={this.props.fieldTrip.notes}
                             />
                             <FieldTripSection
                                 label="Where we'll be"
-                                text="We'll be in a candy-colored maze of stores in the Akihabara neighborhood. Hardcore fans, called otaku, consider this area to be a sacred place. To outsiders, it can be overwhelming. That's why it's a good idea to tackle Akihabara with a professional figurine buyer."
+                                text={this.props.fieldTrip.where}
                             />
                         </div>
                     </div>
@@ -160,4 +160,18 @@ export class FieldTripShow extends React.Component {
     }
 
     FieldTrips = connect(mapStateToProps, mapDispatchToProps)(FieldTrips)
-})()
+})();
+
+(function() {
+    const mapStateToProps = state => {
+        return {
+            fieldTrip: state.field_trip,
+        }
+    }
+
+    const mapDispatchToProps = dispatch => {
+        return {}
+    }
+
+    FieldTripShow = connect(mapStateToProps, mapDispatchToProps)(FieldTripShow)
+})();
