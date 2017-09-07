@@ -23,6 +23,8 @@ export class FieldTripTile extends React.Component {
     }
 
     render() {
+        const reviewCount = this.props.fieldTrip.review_count
+        const suffix = reviewCount === 1 ? ' review' : ' reviews'
         return (
             <div className="card m-2 pointer" style={{width: '20rem'}} onClick={this.onClick.bind(this)}>
               <img className="card-img-top img-fluid" src={this.props.fieldTrip.trip_image_url} alt="Card image cap" />
@@ -36,7 +38,7 @@ export class FieldTripTile extends React.Component {
                         <i className="fa fa-star rating-star p-1"></i>
                         <i className="fa fa-star rating-star p-1"></i>
                     </div>
-                    <span className="pt-1 pb-1 pl-3 pr-3">67 reviews</span>
+                    <span className="pt-1 pb-1 pl-3 pr-3">{reviewCount + suffix}</span>
                 </div>
               </div>
             </div>
@@ -47,6 +49,8 @@ export class FieldTripTile extends React.Component {
 class FieldTripProfileTile extends React.Component {
     render() {
         const trip = this.props.fieldTrip
+        const reviewCount = trip.review_count
+        const suffix = reviewCount === 1 ? ' review' : ' reviews'
         return (
         <div className="profile-tile">
           <div className="mw-100 field-trip-hero-img">
@@ -68,7 +72,7 @@ class FieldTripProfileTile extends React.Component {
                     <i className="fa fa-star rating-star p-1"></i>
                     <i className="fa fa-star rating-star p-1"></i>
                 </div>
-                <span className="pt-1 pb-1 pl-3 pr-3">67 reviews</span>
+                <span className="pt-1 pb-1 pl-3 pr-3">{reviewCount + suffix}</span>
             </div>
           </div>
         </div>
