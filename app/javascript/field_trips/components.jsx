@@ -173,8 +173,30 @@ class FieldTripMap extends React.Component {
     }
 }
 
+class FieldTripReview extends React.Component {
+    render() {
+        return (
+            <div>
+                <div className="d-flex">
+                    <div>image</div>
+                    <div>profile</div>
+                </div>
+                <p className="light">
+                {this.props.review.body}
+                </p>
+            </div>
+        )
+    }
+}
+
 export class FieldTripShow extends React.Component {
     render() {
+        const reviews = this.props.fieldTrip.reviews.slice(0, 3).map((review, i) => {
+            return (
+                <FieldTripReview key={i} review={review} />
+            )
+        })
+
         return (
             <div className="field-trip-show">
                 <div className="row d-flex flex-wrap-reverse">
@@ -203,6 +225,10 @@ export class FieldTripShow extends React.Component {
                                 text={this.props.fieldTrip.where}
                             />
                             <FieldTripMap fieldTrip={this.props.fieldTrip} />
+                            <section className="field-trip-section">
+                                <div>Reviews</div>
+                                {reviews}
+                            </section>
                         </div>
                     </div>
                     <div className="col-md-4">
