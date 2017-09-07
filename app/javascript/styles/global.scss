@@ -3,6 +3,12 @@ body {
     color: $black;
 }
 
+section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    font-size: 17px;
+}
+
 .ft-navbar {
     border-bottom: 1px solid $light-gray;
 }
@@ -21,4 +27,8 @@ body {
 
 .gmap {
     height: 25rem;
+}
+
+.content {
+    padding-top: 40px;
 }
