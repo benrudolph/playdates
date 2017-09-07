@@ -15,7 +15,7 @@ import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 
 import { MainNav } from 'global/components'
-import { FieldTripShow } from 'field_trips/components'
+import { FieldTripShow, FieldTripReservationModal } from 'field_trips/components'
 import fieldTripReducer from 'field_trips/reducers'
 
 window.jQuery = jQuery
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div className="container">
         <FieldTripShow />
       </div>
+      <FieldTripReservationModal />
     </div>
     </Provider>,
     $('.react-container')[0]

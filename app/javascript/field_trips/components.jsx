@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import moment from 'moment/moment'
+
 import MapStyles from 'global/map_styles'
+import Constants from 'global/constants'
 
 import MapIconPurple from '../../assets/images/purple_map_icon.png'
 
@@ -52,7 +55,10 @@ class FieldTripProfileTile extends React.Component {
           <div className="mt-3">
             <div className="d-flex justify-content-between">
                 <p className=""><b>${trip.cost}</b> per child</p>
-                <button className="btn btn-primary">See Dates</button>
+                <button
+                    className="btn btn-primary"
+                    data-toggle="modal"
+                    data-target={'#' + Constants.RESERVATION_MODAL}>See Dates</button>
             </div>
             <div className="d-flex align-items-center">
                 <div className="rating">
@@ -244,6 +250,70 @@ export class FieldTripShow extends React.Component {
     }
 }
 
+class FieldTripReservation extends React.Component {
+    timeSpan(momentDate, duration) {
+        return (
+            momentDate.format('hh:mm A') +
+            ' − ' +
+            momentDate.add(duration, 'hours').format('hh:mm A')
+        )
+    }
+
+    render() {
+        const trip = this.props.fieldTrip
+        let momentDate = moment(this.props.date)
+        return (
+            <section className="d-flex justify-content-between field-trip-reservation">
+                <div>
+                    <h4 className="light">{momentDate.format('ddd, MMM M')}</h4>
+                    <p>
+                        {this.timeSpan(momentDate, trip.duration) + ' · $' + trip.cost + ' per child'}
+                    </p>
+                </div>
+                <div>
+                    <a href="" className="btn btn-primary">Choose Date</a>
+                </div>
+            </section>
+        )
+    }
+}
+
+export class FieldTripReservationModal extends React.Component {
+    render() {
+        const dates = this.props.fieldTrip.active_dates
+        const tripDates = dates.map((date, i) => {
+            return (
+                <FieldTripReservation
+                    key={i}
+                    date={date}
+                    fieldTrip={this.props.fieldTrip} />
+            )
+        })
+        // Render the dates in a modal
+        // Allows user to navigate to Booking page to confirm their attendance
+        return (
+            <div className="modal fade" id={Constants.RESERVATION_MODAL} tabIndex="-1">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h3 className="modal-title">When do you want to go?</h3>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    {tripDates}
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        )
+    }
+}
+
 (function() {
     const mapStateToProps = state => {
         return {
@@ -270,4 +340,18 @@ export class FieldTripShow extends React.Component {
     }
 
     FieldTripShow = connect(mapStateToProps, mapDispatchToProps)(FieldTripShow)
+})();
+
+(function() {
+    const mapStateToProps = state => {
+        return {
+            fieldTrip: state.field_trip,
+        }
+    }
+
+    const mapDispatchToProps = dispatch => {
+        return {}
+    }
+
+    FieldTripReservationModal = connect(mapStateToProps, mapDispatchToProps)(FieldTripReservationModal)
 })();

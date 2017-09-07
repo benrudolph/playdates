@@ -20,3 +20,13 @@
         width: 1rem;
     }
 }
+
+.field-trip-reservation {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $light-gray;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
