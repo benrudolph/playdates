@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20170907005428) do
   end
 
   create_table "trip_dates", force: :cascade do |t|
-    t.date "trip_date"
+    t.datetime "trip_date"
     t.integer "field_trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
