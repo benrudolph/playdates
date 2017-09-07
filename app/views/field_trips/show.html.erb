@@ -1,5 +1,5 @@
 <div id="initial-data" data-initial-data="<%= {
-    field_trip: @field_trip.as_json(include: { user: { include: :facts }, reviews: {}, active_dates: {} })
+    field_trip: @field_trip.as_json(include: { user: { include: :facts }, reviews: { include: :user }, active_dates: {} })
 }.to_json %>"></div>
 <div class="react-container"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= @google_api_key %>"></script>

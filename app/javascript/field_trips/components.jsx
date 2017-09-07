@@ -133,7 +133,7 @@ class FieldTripSummary extends React.Component {
                         </div>
                     </div>
                     <div>
-                      <img width="75" className="rounded-circle" src={user.profile_image_url} alt="Card image cap" />
+                      <img width="75" className="rounded-circle" src={user.profile_image_url} alt="Profile Image" />
                     </div>
                 </div>
             </section>
@@ -185,11 +185,18 @@ class FieldTripMap extends React.Component {
 
 class FieldTripReview extends React.Component {
     render() {
+        const user = this.props.review.user
+        console.log(user)
         return (
             <div>
                 <div className="d-flex">
-                    <div>image</div>
-                    <div>profile</div>
+                    <div>
+                      <img width="60" className="rounded-circle mr-3 mt-3 mb-3" src={user.profile_image_url} alt="Profile Image" />
+                    </div>
+                    <div className="mt-3">
+                        <div>{user.name}</div>
+                        <small>{moment(this.props.review.created_at).format('MMMM M, YYYY')}</small>
+                    </div>
                 </div>
                 <p className="light">
                 {this.props.review.body}
@@ -236,7 +243,7 @@ export class FieldTripShow extends React.Component {
                             />
                             <FieldTripMap fieldTrip={this.props.fieldTrip} />
                             <section className="field-trip-section">
-                                <div>Reviews</div>
+                                <div className="mb-3">Reviews</div>
                                 {reviews}
                             </section>
                             <FieldTripSection
