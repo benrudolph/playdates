@@ -1,0 +1,6 @@
+<div id="initial-data" data-initial-data="<%= {
+    field_trip: @field_trip.as_json(include: :user),
+    trip_date: @trip_date.as_json
+}.to_json %>"></div>
+<div class="react-container"></div>
+<%= javascript_pack_tag 'reservations/new' %>
