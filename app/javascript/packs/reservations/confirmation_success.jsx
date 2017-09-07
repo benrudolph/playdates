@@ -15,8 +15,7 @@ import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 
 import { MainNav } from 'global/components'
-import { ReservationForm } from 'reservations/components'
-import { reservationReducer } from 'reservations/reducers'
+import SmilingMonkey from '../../../assets/images/smiling_monkey.png'
 
 window.jQuery = jQuery
 window.moment = moment
@@ -26,10 +25,8 @@ const loggerMiddleware = createLogger()
 
 document.addEventListener('DOMContentLoaded', () => {
   let initialData = $('#initial-data').data().initialData
-  initialData.csrfToken = $('meta[name="csrf-token"]').attr('content')
-  initialData.numberOfChildren = 1
   store = createStore(
-    reservationReducer,
+    () => {},
     initialData,
     applyMiddleware(
       loggerMiddleware,
@@ -40,11 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
     <Provider store={store}>
     <div>
       <MainNav />
-      <div className="container">
-        <ReservationForm />
+      <div className="container text-center">
+            <h1 className="display-2 m-3 p-3">Reservation Success!</h1>
+            <div>
+              <img height="450" src={SmilingMonkey} />
+            </div>
+            <a href="/" className="btn btn-primary mt-3">Home</a>
       </div>
     </div>
     </Provider>,
     $('.react-container')[0]
   )
 })
+

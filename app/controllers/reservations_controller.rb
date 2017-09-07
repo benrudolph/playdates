@@ -24,15 +24,21 @@ class ReservationsController < ApplicationController
       trip_date_id: trip_date_id
     })
 
+    # TODO: Send email
+
     if reservation.valid?
       reservation.save
       # Redirect to confirmation page
       respond_to do |format|
-        format.html
+        format.html { redirect_to(action: 'confirmation_success') }
         format.json { render json: { reservation: reservation, trip_date: @trip_date } }
       end
     else
       raise 'Invalid Reservation'
     end
+  end
+
+  def confirmation_success
+    render 'confirmation_success'
   end
 end

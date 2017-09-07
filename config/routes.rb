@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :trip_dates do
     resources :reservations
   end
+  get '/confirmation_success', to: "reservations#confirmation_success"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'field_trips#index'
 end
