@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import { updateNumberOfChildren } from 'reservations/actions'
+
 export class ReservationForm extends React.Component {
     render() {
         const date = this.props.tripDate
@@ -31,7 +33,13 @@ export class ReservationForm extends React.Component {
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="reservation_number_of_children">Number of children</label>
-                                    <input required name="reservation[number_of_children]" min="1" max="4" type="number" className="form-control" id="reservation_number_of_children" placeholder="1" />
+                                    <input
+                                        required
+                                        onChange={this.props.onChangeNumberOfChildren}
+                                        name="reservation[number_of_children]"
+                                        min="1" max="4" type="number"
+                                        className="form-control"
+                                        id="reservation_number_of_children" placeholder="1" />
                                 </div>
                                 <button type="submit" className="btn btn-primary">Reserve!</button>
                             </form>
@@ -50,6 +58,8 @@ class FieldTripInfo extends React.Component {
     render() {
         const trip = this.props.fieldTrip
         const date = this.props.tripDate
+        const numberOfChildren = this.props.numberOfChildren || 1
+        const suffix = numberOfChildren === 1 ? ' child' : ' children'
         return (
             <div className="card" >
               <div className="card-block">
@@ -59,7 +69,11 @@ class FieldTripInfo extends React.Component {
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">{moment(date.trip_date).format('ddd, MMM M')}</li>
                 <li className="list-group-item">
-                    {'$' + trip.cost + ' x 1 child'}
+                    {'$' + trip.cost + ' x ' + numberOfChildren + suffix}
+                </li>
+                <li className="list-group-item d-flex justify-content-between">
+                    <span className="float-left"><b>Total</b></span>
+                    <span className="float-right"><b>{'$' + trip.cost * numberOfChildren}</b></span>
                 </li>
               </ul>
           </div>
@@ -74,12 +88,27 @@ class FieldTripInfo extends React.Component {
             fieldTrip: state.field_trip,
             tripDate: state.trip_date,
             csrfToken: state.csrfToken,
+            numberOfChildren: state.numberOfChildren,
         }
     }
 
     const mapDispatchToProps = dispatch => {
-        return {}
+        return {
+            onChangeNumberOfChildren: (e) => {
+                dispatch(updateNumberOfChildren(e.target.value))
+            }
+        }
     }
 
     ReservationForm = connect(mapStateToProps, mapDispatchToProps)(ReservationForm)
+})();
+
+(function() {
+    const mapStateToProps = state => {
+        return {
+            numberOfChildren: state.numberOfChildren,
+        }
+    }
+
+    FieldTripInfo = connect(mapStateToProps)(FieldTripInfo)
 })();

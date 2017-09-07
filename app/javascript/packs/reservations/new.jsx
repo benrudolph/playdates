@@ -16,6 +16,7 @@ import { Provider } from 'react-redux'
 
 import { MainNav } from 'global/components'
 import { ReservationForm } from 'reservations/components'
+import { reservationReducer } from 'reservations/reducers'
 
 window.jQuery = jQuery
 window.moment = moment
@@ -26,8 +27,10 @@ const loggerMiddleware = createLogger()
 document.addEventListener('DOMContentLoaded', () => {
   let initialData = $('#initial-data').data().initialData
   initialData.csrfToken = $('meta[name="csrf-token"]').attr('content')
+  initialData.numberOfChildren = 1
+  console.log(initialData)
   store = createStore(
-    (state) => { return state},
+    reservationReducer,
     initialData,
     applyMiddleware(
       loggerMiddleware,
