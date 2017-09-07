@@ -10,7 +10,7 @@ class FieldTripsController < ApplicationController
   end
 
   def index
-    @field_trips = FieldTrip.all
+    @field_trips = FieldTrip.order(:priority).all
     respond_to do |format|
       format.html
       format.json { render json: { field_trips: @field_trips } }
