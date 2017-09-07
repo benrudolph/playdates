@@ -30,6 +30,7 @@ class ReservationsController < ApplicationController
 
     if reservation.valid?
       reservation.save
+      ReservationMailer.reservation_email(reservation)
       # Redirect to confirmation page
       respond_to do |format|
         format.html { redirect_to(action: 'confirmation_success') }
