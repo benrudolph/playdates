@@ -1,3 +1,4 @@
 <div id="initial-data" data-initial-data="<%= { field_trips: @field_trips.as_json }.to_json %>"></div>
 <div class="react-container"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= @google_api_key %>"></script>
 <%= javascript_pack_tag 'field_trips/index' %>
