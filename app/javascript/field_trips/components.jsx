@@ -261,7 +261,8 @@ class FieldTripReservation extends React.Component {
 
     render() {
         const trip = this.props.fieldTrip
-        let momentDate = moment(this.props.date)
+        const date = this.props.date
+        let momentDate = moment(date.trip_date)
         return (
             <section className="d-flex justify-content-between field-trip-reservation">
                 <div>
@@ -271,7 +272,7 @@ class FieldTripReservation extends React.Component {
                     </p>
                 </div>
                 <div>
-                    <a href="" className="btn btn-primary">Choose Date</a>
+                    <a href={'/trip_dates/' + date.id + '/reservations/new'} className="btn btn-primary">Choose Date</a>
                 </div>
             </section>
         )
