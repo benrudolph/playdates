@@ -15,6 +15,7 @@ import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 
 import { MainNav } from 'global/components'
+import { ReservationForm } from 'reservations/components'
 
 window.jQuery = jQuery
 window.moment = moment
@@ -23,7 +24,8 @@ let store;
 const loggerMiddleware = createLogger()
 
 document.addEventListener('DOMContentLoaded', () => {
-  const initialData = $('#initial-data').data().initialData
+  let initialData = $('#initial-data').data().initialData
+  initialData.csrfToken = $('meta[name="csrf-token"]').attr('content')
   store = createStore(
     (state) => { return state},
     initialData,
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div>
       <MainNav />
       <div className="container">
-      New
+        <ReservationForm />
       </div>
     </div>
     </Provider>,

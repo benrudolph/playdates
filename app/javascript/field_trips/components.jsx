@@ -204,7 +204,7 @@ export class FieldTripShow extends React.Component {
         })
 
         return (
-            <div className="field-trip-show">
+            <div className="field-trip-show content">
                 <div className="row d-flex flex-wrap-reverse">
                     <div className="col-md-8">
                         <div className="ml-3 mr-3">
@@ -268,7 +268,7 @@ class FieldTripReservation extends React.Component {
                 <div>
                     <h4 className="light">{momentDate.format('ddd, MMM M')}</h4>
                     <p>
-                        {this.timeSpan(momentDate, trip.duration) + ' · $' + trip.cost + ' per child'}
+                        <small>{this.timeSpan(momentDate, trip.duration) + ' · $' + trip.cost + ' per child'}</small>
                     </p>
                 </div>
                 <div>

@@ -10,4 +10,29 @@ class ReservationsController < ApplicationController
       format.json { render json: { trip_date: @trip_date, field_trip: @field_trip } }
     end
   end
+
+  def create
+    params.permit(:trip_date_id)
+    trip_date_id = params[:trip_date_id]
+
+    params.require(:reservation).permit(:name, :email, :number_of_children)
+
+    reservation = Reservation.new({
+      name: params[:name],
+      email: params[:email],
+      number_of_children: params[:number_of_children],
+      trip_date_id: trip_date_id
+    })
+
+    if reservation.valid?
+      reservation.save
+      # Redirect to confirmation page
+      respond_to do |format|
+        format.html
+        format.json { render json: { reservation: reservation, trip_date: @trip_date } }
+      end
+    else
+      raise 'Invalid Reservation'
+    end
+  end
 end
