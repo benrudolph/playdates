@@ -50,6 +50,7 @@ namespace :rbenv do
     on roles(:app) do
       within release_path do
         execute "echo 'RAILS_MASTER_KEY=#{File.read('config/secrets.yml.key')}' > #{release_path}/.rbenv-vars"
+        execute "echo 'RAILS_MASTER_KEY=#{File.read('config/secrets.yml.key')}' > #{release_path}/config/secrets.yml.key"
       end
     end
   end
