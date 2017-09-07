@@ -41,6 +41,16 @@ export class ReservationForm extends React.Component {
                                         className="form-control"
                                         id="reservation_number_of_children" placeholder="1" />
                                 </div>
+                                <div className="form-check">
+                                    <label htmlFor="reservation_parent_present" className="form-check-label">
+                                        <input name="reservation[parent_present]" type="checkbox" className="form-check-input" id="reservation_parent_present" />
+                                        &nbsp;Will you accompany your child?
+                                    </label>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="reservation_special_requests">Any special requests or needs?</label>
+                                    <textarea name="reservation[special_requests]" className="form-control" id="reservation_special_requests" />
+                                </div>
                                 <button type="submit" className="btn btn-primary">Reserve!</button>
                             </form>
                         </div>

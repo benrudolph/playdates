@@ -15,12 +15,14 @@ class ReservationsController < ApplicationController
     params.permit(:trip_date_id)
     trip_date_id = params[:trip_date_id]
 
-    params.require(:reservation).permit(:name, :email, :number_of_children)
+    params.require(:reservation).permit(:name, :email, :number_of_children, :special_requests, :parent_present)
 
     reservation = Reservation.new({
-      name: params[:name],
-      email: params[:email],
-      number_of_children: params[:number_of_children],
+      name: params[:reservation][:name],
+      email: params[:reservation][:email],
+      number_of_children: params[:reservation][:number_of_children],
+      special_requests: params[:reservation][:special_requests],
+      parent_present: params[:reservation][:parent_present] == "on",
       trip_date_id: trip_date_id
     })
 
