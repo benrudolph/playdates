@@ -10,6 +10,7 @@ class FieldTripsController < ApplicationController
   end
 
   def index
+    @google_api_key = Rails.application.secrets[:google_api_key]
     @field_trips = FieldTrip.order(:priority).all
     respond_to do |format|
       format.html
