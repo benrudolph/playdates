@@ -254,7 +254,7 @@ export class FieldTripShow extends React.Component {
                             </section>
                             <FieldTripSection
                                 label="Group Size"
-                                text={'There are a maximum of ' + this.props.fieldTrip.max_people + ' spots for this field trip'}
+                                text={'There are a maximum of ' + this.props.fieldTrip.max_people + ' spots for this play date'}
                             />
                         </div>
                     </div>

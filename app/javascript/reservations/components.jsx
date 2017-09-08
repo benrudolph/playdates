@@ -15,7 +15,7 @@ export class ReservationForm extends React.Component {
                     <div className="col-md-8 col-sm-12">
                         <div className="ml-3 mr-3">
                             <h1 className="mb-3 pb-3">
-                                Ready to book your field trip?
+                                Ready to book your play date?
                             </h1>
                             <p className="lead">
                                 {trip.name}
