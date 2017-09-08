@@ -25,9 +25,16 @@ export class FieldTripTile extends React.Component {
     render() {
         const reviewCount = this.props.fieldTrip.review_count
         const suffix = reviewCount === 1 ? ' review' : ' reviews'
+        const styleImg = {
+            backgroundImage: 'url(' + this.props.fieldTrip.trip_image_url + ')',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            height: '25rem',
+        }
+        console.log(styleImg)
         return (
             <div className="card m-2 pointer" style={{width: '20rem'}} onClick={this.onClick.bind(this)}>
-              <img className="card-img-top img-fluid" src={this.props.fieldTrip.trip_image_url} alt="Card image cap" />
+              <div style={styleImg} className="card-bk-img-top" ></div>
               <div className="card-block">
                 <p className="card-text"><b>${this.props.fieldTrip.cost}</b> {this.props.fieldTrip.name}</p>
                 <div className="d-flex align-items-center">
