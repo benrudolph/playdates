@@ -13,8 +13,8 @@ import MapIconPurple from '../../assets/images/purple_map_icon.png'
 const PurpleIcon = {
     url: MapIconPurple,
     scaledSize: new google.maps.Size(35, 35),
-    origin: new google.maps.Point(0,0),
-    anchor: new google.maps.Point(0, 0)
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(35 / 2, 35)
 }
 
 export class FieldTripTile extends React.Component {
@@ -31,7 +31,6 @@ export class FieldTripTile extends React.Component {
             backgroundSize: 'cover',
             height: '25rem',
         }
-        console.log(styleImg)
         return (
             <div className="card m-2 pointer" style={{width: '20rem'}} onClick={this.onClick.bind(this)}>
               <div style={styleImg} className="card-bk-img-top" ></div>
