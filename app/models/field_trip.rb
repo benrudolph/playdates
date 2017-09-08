@@ -3,7 +3,7 @@ class FieldTrip < ApplicationRecord
 
   has_many :reviews
   has_many :trip_dates
-  has_many :active_dates, -> { where('trip_date > ?', DateTime.now) }, class_name: 'TripDate'
+  has_many :active_dates, -> { where('trip_date > ?', DateTime.now).order(:trip_date) }, class_name: 'TripDate'
 
   def as_json(options = {})
     json = super(options)

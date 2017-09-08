@@ -77,7 +77,7 @@ class FieldTripInfo extends React.Component {
                 <p className="card-text">{trip.what}</p>
               </div>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item">{moment(date.trip_date).format('ddd, MMM M')}</li>
+                <li className="list-group-item">{moment(date.trip_date).format('ddd, MMM D')}</li>
                 <li className="list-group-item">
                     {'$' + trip.cost + ' x ' + numberOfChildren + suffix}
                 </li>

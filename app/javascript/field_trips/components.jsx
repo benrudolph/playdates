@@ -280,10 +280,11 @@ class FieldTripReservation extends React.Component {
         const trip = this.props.fieldTrip
         const date = this.props.date
         let momentDate = moment(date.trip_date)
+        console.log(momentDate.format())
         return (
             <section className="d-flex justify-content-between field-trip-reservation">
                 <div>
-                    <h4 className="light">{momentDate.format('ddd, MMM M')}</h4>
+                    <h4 className="light">{momentDate.format('ddd, MMM D')}</h4>
                     <p>
                         <small>{this.timeSpan(momentDate, trip.duration) + ' · $' + trip.cost + ' per child'}</small>
                     </p>
