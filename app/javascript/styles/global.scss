@@ -11,6 +11,30 @@ section {
 
 .ft-navbar {
     border-bottom: 1px solid $light-gray;
+    padding: 0;
+    margin: 0;
+
+    a, li {
+        height: 3.5rem;
+    }
+
+    .navbar-brand {
+        border-right: 1px solid $light-gray;
+        img:hover {
+            filter: brightness(50%);
+        }
+    }
+
+    transition: 1s all;
+
+    .nav-link {
+        height: 3.5rem;
+    }
+
+    .active {
+        color: $teal;
+    }
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .rating-star {
@@ -31,4 +55,8 @@ section {
 
 .content {
     padding-top: 40px;
+}
+
+.text-center {
+    text-align: center;
 }
