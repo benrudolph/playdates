@@ -10,13 +10,6 @@ import Constants from 'global/constants'
 
 import MapIconPurple from '../../assets/images/purple_map_icon.png'
 
-const PurpleIcon = {
-    url: MapIconPurple,
-    scaledSize: new google.maps.Size(35, 35),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(35 / 2, 35)
-}
-
 export class FieldTripTile extends React.Component {
     onClick() {
         window.location.href = '/field_trips/' + this.props.fieldTrip.id
@@ -150,6 +143,13 @@ class FieldTripSummary extends React.Component {
 class FieldTripMap extends React.Component {
 
     renderGMap() {
+        const PurpleIcon = {
+            url: MapIconPurple,
+            scaledSize: new google.maps.Size(35, 35),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(35 / 2, 35)
+        }
+
         const $map = $('.gmap')
         const trip = this.props.fieldTrip
 
