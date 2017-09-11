@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 
 import { FieldTripTile } from 'field_trips/components'
 
+import Analytics from 'global/analytics'
+
 
 export class CaregiverProfile extends React.Component {
     render() {
