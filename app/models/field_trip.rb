@@ -5,9 +5,9 @@ class FieldTrip < ApplicationRecord
   has_many :trip_dates
   has_many :active_dates, -> { where('trip_date > ?', DateTime.now).order(:trip_date) }, class_name: 'TripDate'
 
-  def as_json(options = {})
-    json = super(options)
-    json[:review_count] = self.reviews.count
-    json
+  def serializable_hash(options = {})
+    hash = super(options)
+    hash[:review_count] = self.reviews.count
+    hash
   end
 end

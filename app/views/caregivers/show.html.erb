@@ -1,5 +1,5 @@
 <div id="initial-data" data-initial-data="<%= {
-    caregiver: @caregiver.as_json(include: { facts: {}, field_trips: { include: { reviews: {} } } }),
+    caregiver: @caregiver.as_json(include: { facts: {}, field_trips: {} }),
     action: action_name,
     controller: controller_name
 }.to_json %>">
