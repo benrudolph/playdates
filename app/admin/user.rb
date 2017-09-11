@@ -10,6 +10,7 @@ ActiveAdmin.register User do
       f.input :name
       f.input :email
       f.input :password
+      f.input :is_host
       f.input :about
       f.input :profile_image_url
       f.input :location
