@@ -34,7 +34,7 @@ class CaregiverTile extends React.Component {
         })
         return (
             <div className="card m-2 pointer" style={{width: '20rem'}} onClick={this.onClick.bind(this)}>
-              <div className="card-block text-center caregiver-tile-img">
+              <div className="card-block text-center caregiver-tile-img pt-3 pb-3">
                   <img width="100" src={giver.profile_image_url} className="rounded-circle img-thumbnail" />
               </div>
               <div className="card-block">
@@ -42,7 +42,6 @@ class CaregiverTile extends React.Component {
                     <h3 className="card-text">{giver.name}</h3>
                     <p>{giver.location}</p>
                 </div>
-                {facts}
               </div>
             </div>
         )
@@ -57,7 +56,7 @@ export class Caregivers extends React.Component {
             )
         })
         return (
-            <div>
+            <div className="d-flex">
                 {caregiverEls}
             </div>
         )
