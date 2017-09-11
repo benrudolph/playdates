@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
 
   permit_params do
-    params = [:name, :email, :password, :about, :profile_image_url, :location, :profession]
+    params = [:name, :email, :password, :about, :profile_image_url, :location, :profession, :is_host]
     params
   end
 
