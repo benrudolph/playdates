@@ -4,9 +4,23 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 
+export class CaregiverProfile extends React.Component {
+    render() {
+        return (
+            <h1>{this.props.caregiver.name}</h1>
+        )
+    }
+}
+
 class CaregiverTile extends React.Component {
     onClick() {
+        Analytics.track(
+            Analytics.Category.CAREGIVER,
+            Analytics.Action.SHOW,
+            this.props.caregiver.name,
+        )
 
+        window.location.href = '/field_trips/' + this.props.caregiver.id
     }
 
     render() {
@@ -63,4 +77,14 @@ export class Caregivers extends React.Component {
     }
 
     Caregivers = connect(mapStateToProps, mapDispatchToProps)(Caregivers)
+})();
+
+(function() {
+    const mapStateToProps = state => {
+        return {
+            caregiver: state.caregiver,
+        }
+    }
+
+    CaregiverProfile = connect(mapStateToProps)(CaregiverProfile)
 })();

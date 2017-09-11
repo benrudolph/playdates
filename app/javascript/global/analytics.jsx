@@ -5,6 +5,7 @@ const Analytics = {
 
     Category: {
         FIELD_TRIP: 'Field Trip',
+        CAREGIVER: 'Caregiver'
     },
 
     Action: {
