@@ -15,6 +15,7 @@ import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 
 import { MainNav } from 'global/components'
+import { Caregivers } from 'caregivers/components'
 
 window.jQuery = jQuery
 window.moment = moment
@@ -36,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <Provider store={store}>
     <div>
       <MainNav />
-      <div className="container-fluid">
+      <div className="container">
+        <Caregivers />
       </div>
     </div>
     </Provider>,

@@ -1,0 +1,11 @@
+.caregiver-tile-img {
+    background-image: linear-gradient(bottom, white 50%, $yellow 50%);
+    background-image: -o-linear-gradient(bottom, white 50%, $yellow 50%);
+    background-image: -moz-linear-gradient(bottom, white 50%, $yellow 50%);
+    background-image: -webkit-linear-gradient(bottom, white 50%, $yellow 50%);
+    background-image: -ms-linear-gradient(bottom, white 50%, $yellow 50%);
+
+    img {
+        border: 2px solid white;
+    }
+}
