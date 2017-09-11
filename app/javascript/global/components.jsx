@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
+import { connect } from 'react-redux'
+
 import Logo from '../../assets/images/logo.png'
 
 
@@ -14,13 +16,31 @@ export class MainNav extends React.Component {
                 </a>
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a className="nav-link" href="#">About</a>
+                    <a className="nav-link" href="/">About</a>
                   </li>
                   <li className="nav-item active">
-                    <a className="nav-link" href="#">PlayDates</a>
+                    <a className="nav-link" href="/">PlayDates</a>
+                  </li>
+                  <li className="nav-item active">
+                    <a className="nav-link" href="/caregivers">Our Caregivers</a>
                   </li>
                 </ul>
             </nav>
         )
     }
 }
+
+
+(function() {
+    const mapStateToProps = state => {
+        return {
+            fieldTrips: state.field_trips,
+        }
+    }
+
+    const mapDispatchToProps = dispatch => {
+        return {}
+    }
+    MainNav = connect(mapStateToProps, mapDispatchToProps)(MainNav)
+
+})()

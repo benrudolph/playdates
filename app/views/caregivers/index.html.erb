@@ -1,0 +1,8 @@
+<div id="initial-data" data-initial-data="<%= {
+    caregivers: @caregivers.as_json,
+    action: action_name
+}.to_json %>">
+</div>
+<div class="react-container"></div>
+<%= javascript_pack_tag 'caregivers/index' %>
+
