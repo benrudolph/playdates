@@ -3,12 +3,29 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import { FieldTripTile } from 'field_trips/components'
+
 
 export class CaregiverProfile extends React.Component {
     render() {
+        const trips = this.props.caregiver.field_trips.slice(0, 3).map((trip, i) => {
+            return (
+                <FieldTripTile key={i} fieldTrip={trip}/>
+            )
+        })
+
         return (
             <div className="content">
                 <h1>{this.props.caregiver.name}</h1>
+                <section className="caregiver-section">
+                    {this.props.caregiver.about}
+                </section>
+                <section className="caregiver-section">
+                    <h3>Featured trips</h3>
+                    <div className="d-flex flex-wrap justify-content-between">
+                        {trips}
+                    </div>
+                </section>
             </div>
         )
     }

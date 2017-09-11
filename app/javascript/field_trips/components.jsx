@@ -32,7 +32,7 @@ export class FieldTripTile extends React.Component {
             height: '25rem',
         }
         return (
-            <div className="card m-2 pointer" style={{width: '20rem'}} onClick={this.onClick.bind(this)}>
+            <div className="card m-2 pointer" style={{width: '18rem'}} onClick={this.onClick.bind(this)}>
               <div style={styleImg} className="card-bk-img-top" ></div>
               <div className="card-block">
                 <p className="card-text"><b>${this.props.fieldTrip.cost}</b> {this.props.fieldTrip.name}</p>
