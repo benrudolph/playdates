@@ -41,7 +41,7 @@ class CaregiverTile extends React.Component {
             this.props.caregiver.name,
         )
 
-        window.location.href = '/field_trips/' + this.props.caregiver.id
+        window.location.href = '/caregivers/' + this.props.caregiver.id
     }
 
     render() {
