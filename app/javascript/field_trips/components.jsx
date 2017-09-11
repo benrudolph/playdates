@@ -7,11 +7,18 @@ import moment from 'moment/moment'
 
 import MapStyles from 'global/map_styles'
 import Constants from 'global/constants'
+import Analytics from 'global/analytics'
 
 import MapIconPurple from '../../assets/images/purple_map_icon.png'
 
 export class FieldTripTile extends React.Component {
     onClick() {
+        Analytics.track(
+            Analytics.Category.FIELD_TRIP,
+            Analytics.Action.SHOW,
+            this.props.fieldTrip.name,
+        )
+
         window.location.href = '/field_trips/' + this.props.fieldTrip.id
     }
 
@@ -46,6 +53,14 @@ export class FieldTripTile extends React.Component {
 }
 
 class FieldTripProfileTile extends React.Component {
+    onClick() {
+        Analytics.track(
+            Analytics.Category.FIELD_TRIP,
+            Analytics.Action.VIEW_DATES,
+            this.props.fieldTrip.name,
+        )
+    }
+
     render() {
         const trip = this.props.fieldTrip
         const reviewCount = trip.review_count
@@ -60,6 +75,7 @@ class FieldTripProfileTile extends React.Component {
                 <p className=""><b>${trip.cost}</b> per child</p>
                 <button
                     className="btn btn-primary"
+                    onClick={this.onClick.bind(this)}
                     data-toggle="modal"
                     data-target={'#' + Constants.RESERVATION_MODAL}>See Dates</button>
             </div>
@@ -280,7 +296,6 @@ class FieldTripReservation extends React.Component {
         const trip = this.props.fieldTrip
         const date = this.props.date
         let momentDate = moment(date.trip_date)
-        console.log(momentDate.format())
         return (
             <section className="d-flex justify-content-between field-trip-reservation">
                 <div>
