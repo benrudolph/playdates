@@ -7,7 +7,9 @@ import { connect } from 'react-redux'
 export class CaregiverProfile extends React.Component {
     render() {
         return (
-            <h1>{this.props.caregiver.name}</h1>
+            <div className="content">
+                <h1>{this.props.caregiver.name}</h1>
+            </div>
         )
     }
 }
