@@ -126,6 +126,11 @@ class FieldTripSection extends React.Component {
 }
 
 class FieldTripSummary extends React.Component {
+    onClick() {
+        const user = this.props.fieldTrip.user
+        window.location.href = '/caregivers/' + user.id
+    }
+
     render() {
         const user = this.props.fieldTrip.user
         const trip = this.props.fieldTrip
@@ -148,7 +153,12 @@ class FieldTripSummary extends React.Component {
                         </div>
                     </div>
                     <div>
-                      <img width="75" className="rounded-circle" src={user.profile_image_url} alt="Profile Image" />
+                      <img
+                        onClick={this.onClick.bind(this)}
+                        width="75"
+                        className="rounded-circle pointer img-thumbnail"
+                        src={user.profile_image_url}
+                        alt="Profile Image" />
                     </div>
                 </div>
             </section>
@@ -216,7 +226,7 @@ class FieldTripReview extends React.Component {
                       <img width="60" className="rounded-circle mr-3 mt-3 mb-3" src={user.profile_image_url} alt="Profile Image" />
                     </div>
                     <div className="mt-3">
-                        <div>{user.name}</div>
+                        <div><a href={'/caregivers/' + user.id}>{user.name}</a></div>
                         <small>{moment(this.props.review.created_at).format('MMMM M, YYYY')}</small>
                     </div>
                 </div>
