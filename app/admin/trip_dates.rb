@@ -11,5 +11,12 @@ ActiveAdmin.register TripDate do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+  form do |f|
+    f.inputs do
+      f.input :field_trip
+      f.input :trip_date, as: :datetime_picker, local: true
+    end
 
+    f.actions
+  end
 end
