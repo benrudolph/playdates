@@ -60,8 +60,8 @@ end
 namespace :system do
   task :restart do
     on roles(:app) do
-      execute "sudo service unicorn_playdates stop"
-      execute "sudo service unicorn_playdates start"
+      execute :sudo, "service unicorn_playdates stop"
+      execute :sudo, "service unicorn_playdates start"
     end
   end
 end
