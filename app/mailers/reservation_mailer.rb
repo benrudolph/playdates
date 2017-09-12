@@ -1,5 +1,5 @@
 class ReservationMailer < ApplicationMailer
-  default from: 'notification@playdates.me'
+  default from: 'notification@fieldtrips.us'
 
   def reservation_email(reservation)
     @field_trip = reservation.trip_date.field_trip

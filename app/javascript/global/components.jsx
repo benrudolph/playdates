@@ -9,7 +9,7 @@ import Logo from '../../assets/images/logo.png'
 const Tabs = [
     {
         controller: 'field_trips',
-        name: 'PlayDates',
+        name: 'Field Trips',
         url: '/',
     },
     {
